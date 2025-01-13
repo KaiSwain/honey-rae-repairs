@@ -1,3 +1,15 @@
+
+
+import { StrictMode } from "react";
+import "./app.css"
+import { TicketList } from "./components/tickets/TicketList";
+import { CustomerList } from "./components/customers/customersList";
+
 export const App = () => {
-  return <div className="welcome">Welcome to your first React Application!</div>
+  return <>
+  <StrictMode>
+  {/* <TicketList /> */}
+  <CustomerList />
+  </StrictMode>
+  </>
 }
