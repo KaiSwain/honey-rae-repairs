@@ -5,7 +5,7 @@ export const SearchBar = ({setShowEmergencyOnly , setSearchTerm}) => {
         <button
           className="filter-btn btn-primary"
           onClick={() => {
-            setShowEmergencyOnly(true);
+            setShowEmergencyOnly(true); //on click set show emergency to true
           }}
         >
           Emergency
@@ -20,7 +20,7 @@ export const SearchBar = ({setShowEmergencyOnly , setSearchTerm}) => {
         </button>
         <input
           onChange={(event) => {
-            setSearchTerm(event.target.value);
+            setSearchTerm(event.target.value); //on change set searchTerm state to search bar value
           }}
           type="text"
           placeholder="Search Tickets"

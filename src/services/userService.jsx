@@ -5,3 +5,5 @@ export const getNoneStaffUsers = () => {
       res.json()
     );
   }
+
+  // we are getting our users that have a isStaff key that  is false

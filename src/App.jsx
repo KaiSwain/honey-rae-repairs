@@ -1,15 +1,31 @@
 
+import "./app.css";
 
-import { StrictMode } from "react";
-import "./app.css"
-import { TicketList } from "./components/tickets/TicketList";
-import { CustomerList } from "./components/customers/customersList";
+import { Routes, Route, Outlet } from "react-router-dom";
 
+import { Login } from "./components/auth/Login";
+import { Register } from "./components/auth/Register";
+import { ApplicationViews } from "./views/ApplicationViews";
+import { Authorized } from "./views/Authorized";
 export const App = () => {
-  return <>
-  <StrictMode>
-  {/* <TicketList /> */}
-  <CustomerList />
-  </StrictMode>
-  </>
-}
+  return (
+    <>
+      {/* Routes with components need to be wrapped in "<Routes></Routes>"
+    component */}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route 
+        path="*" 
+        element={
+          <Authorized>
+            <ApplicationViews/>
+            </Authorized>
+        }
+        />
+        
+      </Routes>
+    </>
+  );
+};
