@@ -7,6 +7,7 @@ import { Welcome } from "../components/welcome/Welcome"
 import { EmployeeList } from "../components/employees/employeeList"
 import { CustomerDetails } from "../components/customers/customerDetails"
 import { useEffect, useState } from "react"
+import { EmployeeForm } from "../components/form/employeeForm"
 
 
 
@@ -19,10 +20,12 @@ const [currentUser, setCurrentUser] = useState({})
 
 useEffect(() => {
 
-  const localHoneyUser = localStorage.getItem("honey-user")
+  const localHoneyUser = localStorage.getItem("honey_user")
   const honeyUserObject = JSON.parse(localHoneyUser)
 
   setCurrentUser(honeyUserObject)
+  console.log(currentUser)
+
 },[])
 
   return <>
@@ -42,7 +45,7 @@ useEffect(() => {
     >
     <Route index element={<Welcome />} />
     {/* when the path is at tickets we want to render this component */}
-    <Route path="tickets" element={<TicketList />} />
+    <Route path="tickets" element={<TicketList currentUser={currentUser}/>} />
     <Route path="employees">
     <Route index element={<EmployeeList />} />
     <Route path=":employeeId" element={<EmployeeDetails />} />
@@ -51,6 +54,7 @@ useEffect(() => {
     <Route index element={<CustomerList />} />
     <Route path=":id" element={<CustomerDetails />} />
     </Route>
+    <Route path="profile" element={<EmployeeForm currentUser={currentUser}/>}/>
     </Route>
     </Routes>
     

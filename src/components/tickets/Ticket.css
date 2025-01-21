@@ -68,3 +68,8 @@
   .filter-bar {
     display: auto;
   }
+
+  .btn-container {
+    display: flex;
+    justify-content: flex-end;
+  }
