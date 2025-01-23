@@ -24,7 +24,7 @@ export const EmployeeForm = ({ currentUser }) => {
           <label>Specialty:</label>
           <input
             type="text"
-            value={employee.specialty}
+            defaultValue={employee?.specialty}
             onChange={(event) => {
               const copy = { ...employee };
               
@@ -42,7 +42,7 @@ export const EmployeeForm = ({ currentUser }) => {
           <label>Hourly Rate:</label>
           <input
             type="number"
-            value={employee.rate}
+            defaultValue={employee?.rate}
             onChange={(event) => {
               const copy = { ...employee };
               copy.rate = event.target.value;
